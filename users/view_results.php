@@ -3,7 +3,7 @@
 
 <!-- positions sidebar -->
 <div class="row">
-    <h1 class="text-success text-center ">NACOS DECIDES</h1>
+    <h1 class="text-success text-center ">ELECTION RESULTS</h1>
 
     <div class="col-md-3 mt-5">
         <div class="list-group">

@@ -1,0 +1,15 @@
+
+
+1.  Admin dashboard
+- Register contestants
+- Register Voters
+- 
+
+
+
+
+2. User dashboard
+- View contestants
+- Cast vote
+- View results
+- View profile
