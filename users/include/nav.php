@@ -1,3 +1,10 @@
+<?php
+
+include('../function.php');
+// include '../function.php';
+$auth = new db_CON();
+$logout = $auth->logout();
+?>
 <div class="row">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -26,30 +33,32 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./view_results.php">Results</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
+                            Profile
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Welcome <?php //echo $_SESSION['mat_no']; 
+                                                                            ?></a></li>
+                            <li><a class="dropdown-item" href="#">Account Settings</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="#">Update Profile</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <a class="nav-link disabled">Welcome <?php echo $_SESSION['mat_no']; ?></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Logout</a>
-                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../../logout.php">Logout</a>
+                    </li> -->
                 </ul>
-                <!-- <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form> -->
+                <form class="d-flex gap-2">
+                    <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
+                    <a href="" class="mr-2"> <button class="btn btn-outline-success " type="submit">Login</button></a>
+                    <a href="<?php echo $logout; ?>"><button class="btn btn-outline-danger" type="submit">Logout</button></a>
+                </form>
             </div>
         </div>
     </nav>

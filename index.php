@@ -1,3 +1,27 @@
+<?php
+session_start();
+include('./function.php');
+
+$auth = new db_CON();
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $matric_no = $_POST['matric_no'];
+    $login = $auth->signin($username, $matric_no);
+    $user = mysqli_fetch_assoc($login);
+    if (mysqli_num_rows($login) > 0) {
+        echo "successful";
+        $_SESSION['mat_no'] = $user['matric_no'];
+        echo "<script>window.location.href='./users/user_home.php';</script>";
+    } else {
+        echo "failed";
+        echo "<script>window.location.href='./index.php';</script>";
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,20 +48,22 @@
                         <div class="card">
                             <h5 class="card-header">Login</h5>
                             <div class="card-body">
-                                <div class="mb-3 row">
-                                    <label for="staticEmail" class="col-sm-3 col-form-label">Email</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="staticEmail" value="email@example.com">
+                                <form method="POST" action="">
+                                    <div class="mb-3 row">
+                                        <label for="username" class="col-sm-3 col-form-label">Username</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="username" id="username" value="username">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
-                                    <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="inputPassword">
-                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="matric_no" class="col-sm-3 col-form-label">Matric Number</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="matric_no" id="matric_no">
+                                        </div>
 
-                                </div>
-                                <a href="#" class="btn btn-success">Sign In</a>
+                                    </div>
+                                    <input type="submit" value="Sign In" name="submit" class="btn btn-success">
+                                </form>
                             </div>
                         </div>
 

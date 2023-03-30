@@ -1,0 +1,25 @@
+Contestants Table
+    Contestant_id
+    full name
+    matric number
+    position
+    biography
+    photo
+    gender
+    level (ND/HND)
+
+Voter Table
+    Voter_id
+    full name
+    gender
+    level (ND/HND)
+
+Result Table
+    Voter_id
+    president_id
+    vice_president_id
+    secretary_id etc
+
+position
+    list of all ND posts in NACOS
+    list of all HND posts in NACOS

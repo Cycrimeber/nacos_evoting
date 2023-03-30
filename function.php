@@ -1,6 +1,6 @@
 <?php
 
-class Connection
+class db_CON
 {
     public $servername = "localhost";
     public $username = "root";
@@ -17,30 +17,36 @@ class Connection
             echo "Failed to connect to MYSQL: " . mysqli_connect_error();
             exit();
         }
-        // else {
-        //     echo "successful";
-        // }
     }
 
     // Matric number availability
     public function user_availability($matric_no)
     {
         $result = mysqli_query($this->conn, "SELECT * FROM voters WHERE matric_no = '$matric_no'");
-        if ($result) {
-            return $result;
-        } else {
-            echo "failed" . mysqli_connect_error();
-        }
+        return $result;
     }
 
     // function for registration 
-    public function registration($full_name, $matric_no, $level)
+    public function registration($full_name, $matric_no, $level, $gender)
     {
+        $result = mysqli_query($this->conn, "INSERT INTO voters (full_name, gender, `level`, matric_no) VALUE ('$full_name', '$gender', '$level', '$matric_no')");
+        return $result;
     }
 
     // function for sign in
     public function signin($name, $matric_no)
     {
+        $result = mysqli_query($this->conn, "SELECT * FROM voters WHERE full_name = '$name' && matric_no = '$matric_no'");
+        return $result;
+    }
+
+    public function logout()
+    {
+        session_start();
+        session_unset();
+        session_destroy();
+
+        header('Location:../../index.php');
     }
 
     public function close()
@@ -48,18 +54,3 @@ class Connection
         $this->conn->close();
     }
 }
-
-// $user1 = new Connection();
-// echo '<pre>';
-// print_r($user1->user_availability("HND22/3003"));
-
-// createa a connection to the database using the OOP method
-// $conn = new mysqli($servername, $username, $password, $dbName);
-
-// check connection
-// if ($conn->connect_errno) {
-//     die("Connection failed: " . $conn->connect_error . $conn->connect_errno);
-//     exit();
-// }
-
-// $conn->close();

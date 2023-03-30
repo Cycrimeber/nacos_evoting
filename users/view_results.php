@@ -28,28 +28,60 @@
     </div>
 
     <!-- list of candidates based on position selection -->
-    <div class="col-md 9">
-        <h1 class="text-primary text-center my-5">President</h1>
-        <div class="row d-flex justify-content-around">
-            <div class="col-md-4 card">
-                <img src="../images/cars/144.JPG" class="card-img-top img-fluid" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Ayokunle Eze Musa</h5>
-                    <a href="#" class="btn btn-success ">Vote</a>
-                </div>
-            </div>
+    <div class="col-md 9 mt-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <!-- <th scope="col">#</th> -->
+                    <th scope="col">Position</th>
+                    <th scope="col">Candidates</th>
+                    <th scope="col">Votes</th>
+                    <th scope="col">Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- President -->
+                <tr>
+                    <!-- <th scope="row">1</th> -->
+                    <td rowspan="3" class="text-center text-light bg-primary bg-opacity-50 pt-5">President</td>
+                    <td class="bg-primary bg-opacity-50">Otto</td>
+                    <td class="bg-primary bg-opacity-50">65</td>
+                    <td class="bg-primary bg-opacity-50"></td>
+                </tr>
+                <tr>
+                    <!-- <th scope="row">2</th> -->
+                    <td class="bg-primary bg-opacity-50">Thornton</td>
+                    <td class="bg-primary bg-opacity-50">112</td>
+                    <td class="bg-success bg-opacity-75 text-light text-center">Winner</td>
+                </tr>
+                <tr>
+                    <!-- <th scope="row">3</th> -->
+                    <td class="bg-primary bg-opacity-50">Larry the Bird</td>
+                    <td class="bg-primary bg-opacity-50">34</td>
+                    <td class="bg-primary bg-opacity-50"></td>
+                </tr>
 
-            <div class="col-md-4 card">
-                <img src="../images/cars/Volvo-3CC-08-1152.jpg" class="card-img-top img-fluid" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Idris Okechukwu Ojo</h5>
-                    <a href="#" class="btn btn-success">Vote</a>
-                </div>
-            </div>
+                <!-- Vice President -->
+                <tr>
+                    <!-- <th scope="row">1</th> -->
+                    <td rowspan="3" class="text-center bg-success text-dark bg-opacity-10 pt-4">Vice President</td>
+                    <td class="bg-success bg-opacity-10">Ibong</td>
+                    <td class="bg-success bg-opacity-10">5</td>
+                    <td class="bg-success bg-opacity-10"></td>
+                </tr>
+                <tr>
+                    <!-- <th scope="row">2</th> -->
+                    <td class="bg-success bg-opacity-10">Charity</td>
+                    <td class="bg-success bg-opacity-10">301</td>
+                    <td class="bg-success bg-opacity-75 text-light text-center">Winner</td>
+                </tr>
 
-        </div>
+            </tbody>
+        </table>
 
     </div>
+
+</div>
 </div>
 
 <?php include('./include/footer.php'); ?>
